@@ -3,6 +3,7 @@ package endpoint
 import (
 	"context"
 
+	"github.com/benkim0414/geoauth2/client"
 	"github.com/benkim0414/geoauth2/service"
 	"github.com/go-kit/kit/endpoint"
 	"github.com/go-kit/kit/log"
@@ -72,13 +73,13 @@ type Failer interface {
 
 // PostClientRequest collects the request parameters for the PostClient method.
 type PostClientRequest struct {
-	Client *service.Client `json:"client"`
+	Client *client.Client `json:"client"`
 }
 
 // PostClientResponse collects the response values for the PostClient method.
 type PostClientResponse struct {
-	Client *service.Client `json:"client"`
-	Err    error           `json:"error"`
+	Client *client.Client `json:"client"`
+	Err    error          `json:"error"`
 }
 
 // Failed implements Failer.
@@ -91,8 +92,8 @@ type GetClientRequest struct {
 
 // GetClientResponse collects the response values for the GetClient method.
 type GetClientResponse struct {
-	Client *service.Client `json:"client"`
-	Err    error           `json:"error"`
+	Client *client.Client `json:"client"`
+	Err    error          `json:"error"`
 }
 
 // Failed implements Failer.
